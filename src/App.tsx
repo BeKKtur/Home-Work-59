@@ -6,7 +6,7 @@ import AddFilm from "./components/AddFilm";
 function App() {
     const [films, setFilms] = useState<Film[]>([]);
 
-    const AaddFilm = (films:Film) => {
+    const FilmAdded = (films:Film) => {
         setFilms(prevState => [...prevState, films]);
     }
 
@@ -20,13 +20,13 @@ function App() {
   return (
     <>
         <div>
-            <AddFilm onSubmit={AaddFilm}/>
+            <AddFilm onSubmit={FilmAdded}/>
         </div>
         <div>
             {films.map(films => (
                 <div key={films.id} className="container mt-3 d-flex align-content-center justify-content-around border">
                     <div suppressContentEditableWarning={true} contentEditable={true}>{films.name}</div>
-                    <p>{num++}</p>
+                    <p>#{num++}</p>
                     <button className="btn btn-danger" onClick={() => remove(films.id)}>X</button>
                 </div>
             ))}

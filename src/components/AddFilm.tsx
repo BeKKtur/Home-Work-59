@@ -5,7 +5,7 @@ interface AddFilmProps {
     onSubmit: (film:Film) => void
 }
 
-const AddFilm:React.FC<AddFilmProps> = ({onSubmit}) => {
+const AddFilm:React.FC<AddFilmProps> = React.memo(({onSubmit}) => {
     const [film, setFilm] =useState<FilmMutation>({
         name: ''
     });
@@ -42,6 +42,6 @@ const AddFilm:React.FC<AddFilmProps> = ({onSubmit}) => {
             </form>
         </div>
     );
-};
+});
 
 export default AddFilm;
